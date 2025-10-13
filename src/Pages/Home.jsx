@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import ProductList from '../components/ProductList';
+import ProductList from '../components/Products';
 import Footer from '../components/Footer';
 import '../styles/main.css';
 

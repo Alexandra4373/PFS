@@ -1,7 +1,8 @@
+// import React, { useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// SVG icons (Heroicons - you can move these to a separate file if preferred)
+// SVG icons (Heroicons)
 const HeartIcon = ({ filled }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -36,38 +37,60 @@ const CartIcon = () => (
   </svg>
 );
 
+// Feature section icons
+const TagIcon = () => (
+  <svg className="w-10 h-10 text-green-700 mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M7 7l10 10M7 17L17 7M7 7v10m10-10v10" />
+  </svg>
+);
+
+const ChatIcon = () => (
+  <svg className="w-10 h-10 text-green-700 mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4-.8l-4 1 1-4A8.96 8.96 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+  </svg>
+);
+
+const TruckIcon = () => (
+  <svg className="w-10 h-10 text-green-700 mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2a2 2 0 012-2h6a2 2 0 012 2v2M9 17H7a2 2 0 01-2-2v-5a2 2 0 012-2h2m0 9v-2m0 2h6m0 0v-2m0 2h2a2 2 0 002-2v-5a2 2 0 00-2-2h-2m0 9v-2m0 2h-6" />
+  </svg>
+);
+
 const products = [
   {
     name: "Shemah Instant Rice Porridge Mix",
     price: "GH₵43.00",
     salePrice: "GH₵40.00",
-    image: "https://via.placeholder.com/300x200?text=Rice+Porridge+Mix",
+    image: "",
     sale: true,
   },
   {
     name: "Shemah Instant Rice Porridge Mix (with Carrot)",
     price: "GH₵43.00",
     salePrice: "GH₵40.00",
-    image: "https://via.placeholder.com/300x200?text=Carrot+Mix",
+    image: "",
     sale: true,
   },
   {
     name: "Shemah Instant Rice Porridge Mix (with Coconut Chunks)",
     price: "GH₵45.00",
     salePrice: "GH₵42.00",
-    image: "https://via.placeholder.com/300x200?text=Coconut+Chunks",
+    image: "",
     sale: true,
   },
   {
     name: "Shemah Instant Rice Porridge Mix (with Groundnut Chunks)",
     price: "GH₵45.00",
     salePrice: "GH₵45.00",
-    image: "https://via.placeholder.com/300x200?text=Groundnut+Chunks",
+    image: "",
     sale: false,
   },
 ];
 
 function App() {
+  // const [hoveredProduct, setHoveredProduct] = useState(null);
+  // const [cartHover, setCartHover] = useState(null);
+
   return (
     <>
       <Header />
@@ -77,6 +100,7 @@ function App() {
           <h1 className="text-4xl font-bold mb-4 animate-fade-in">Welcome to PFS Products</h1>
           <p className="text-lg animate-fade-in delay-100">Delicious, nutritious instant rice porridge mixes for every taste!</p>
         </section>
+
 
         {/* Product Grid */}
         <section className="max-w-6xl mx-auto py-12 px-4">
@@ -96,7 +120,7 @@ function App() {
                   alt={product.name}
                   className="w-full h-40 object-cover rounded mb-4 transition-transform duration-300 group-hover:scale-105"
                 />
-                <h3 className="font-bold text-lg mb-2">{product.name}</h3>
+                <h3 className="font-bold text-lg mb-2 ">{product.name}</h3>
                 <div className="mb-2">
                   {product.sale ? (
                     <div>
@@ -108,14 +132,62 @@ function App() {
                     <span className="text-gray-800 font-bold">{product.price}</span>
                   )}
                 </div>
-                <button className="mt-auto flex items-center justify-center gap-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition group">
-                  <CartIcon />
-                  Add to Cart
-                </button>
+                <div className="relative mt-auto flex items-center justify-center gap-2">
+                  <button
+                    className="flex items-center gap-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition group text-center"
+                  >
+                    <CartIcon />
+                    Add to Cart
+                  </button>
+                </div>
                 {/* Animated border effect */}
-                <span className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-green-700 transition-all duration-300 pointer-events-none"></span>
+                {/* <span className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-green-700 transition-all duration-300 pointer-events-none"></span> */}
               </div>
             ))}
+          </div>
+          {/* Browse All Products Button */}
+          <div className="flex justify-center mt-10">
+            <a
+              href="./Products"
+              className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-green-800 transition mx-2"
+            >
+              Browse All Products
+            </a>
+            {/* <a
+              href="/buy"
+              className="bg-green-100 text-green-700 px-6 py-3 rounded-lg font-semibold shadow hover:bg-green-200 transition mx-2 border border-green-700"
+            >
+              Buy Now
+            </a> */}
+          </div>
+        </section>
+
+
+
+          {/* Why Choose Us Section */}
+        <section className="max-w-6xl mx-auto px-4 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition animate-fade-in">
+              {/* <TagIcon /> */}
+              <h3 className="text-lg font-bold mb-2 text-green-700">Best Prices</h3>
+              <p className="text-gray-600">
+                Get our premium quality mango powder products for commercial and retail use, processed with advanced dehydration technology.
+              </p>
+            </div>
+            <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition animate-fade-in">
+              {/* <ChatIcon /> */}
+              <h3 className="text-lg font-bold mb-2 text-green-700">Live Support</h3>
+              <p className="text-gray-600">
+                Our friendly support team is always ready to assist you in real-time with orders, inquiries, and delivery updates, anytime you need.
+              </p>
+            </div>
+            <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition animate-fade-in">
+              {/* <TruckIcon /> */}
+              <h3 className="text-lg font-bold mb-2 text-green-700">Quick Delivery</h3>
+              <p className="text-gray-600">
+                Experience fast and reliable delivery of our products straight to your door, ensuring quality, convenience, and satisfaction with every order.
+              </p>
+            </div>
           </div>
         </section>
       </main>
@@ -125,4 +197,3 @@ function App() {
 }
 
 export default App;
-
