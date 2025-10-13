@@ -57,7 +57,7 @@ function Header() {
         </header>
         {/* Login/Sign Up Popup */}
         {showLogin && (
-    <div className="fixed inset-0 flex items-center justify-center z-50"
+    <div className="fixed inset-0 flex items-center justify-center z-50 cursor:pointer"
          style={{
              background: "linear-gradient(135deg, #e0f7fa 0%, #f1f8e9 100%)",
              backdropFilter: "blur(2px)"
