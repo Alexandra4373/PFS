@@ -57,75 +57,79 @@ function Header() {
         </header>
         {/* Login/Sign Up Popup */}
         {showLogin && (
-            <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-                <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-sm animate-fade-in">
-                    <div className="flex justify-center mb-6">
-                        <button
-                            className={`px-4 py-2 font-semibold rounded-l ${activeTab === 'login' ? 'bg-green-700 text-white' : 'bg-gray-100 text-green-700'}`}
-                            onClick={() => setActiveTab('login')}
-                        >
-                            Login
-                        </button>
-                        <button
-                            className={`px-4 py-2 font-semibold rounded-r ${activeTab === 'signup' ? 'bg-green-700 text-white' : 'bg-gray-100 text-green-700'}`}
-                            onClick={() => setActiveTab('signup')}
-                        >
-                            Create Account
-                        </button>
-                    </div>
-                    {activeTab === 'login' ? (
-                        <form className="flex flex-col gap-4">
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
-                            />
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
-                            />
-                            <button
-                                type="submit"
-                                className="bg-green-700 text-white py-2 rounded hover:bg-green-800 transition"
-                            >
-                                Login
-                            </button>
-                        </form>
-                    ) : (
-                        <form className="flex flex-col gap-4">
-                            <input
-                                type="text"
-                                placeholder="Full Name"
-                                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
-                            />
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
-                            />
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
-                            />
-                            <button
-                                type="submit"
-                                className="bg-green-700 text-white py-2 rounded hover:bg-green-800 transition"
-                            >
-                                Create Account
-                            </button>
-                        </form>
-                    )}
-                    <button
-                        className="mt-4 text-gray-500 hover:text-green-700 transition"
-                        onClick={() => setShowLogin(false)}
-                    >
-                        Close
-                    </button>
-                </div>
+    <div className="fixed inset-0 flex items-center justify-center z-50"
+         style={{
+             background: "linear-gradient(135deg, #e0f7fa 0%, #f1f8e9 100%)",
+             backdropFilter: "blur(2px)"
+         }}>
+        <div className="bg-gradient-to-br from-green-100 via-green-200 to-green-300 rounded-lg shadow-lg p-8 w-full max-w-sm animate-fade-in">
+            <div className="flex justify-center mb-6">
+                <button
+                    className={`px-4 py-2 font-semibold rounded-l ${activeTab === 'login' ? 'bg-green-700 text-white' : 'bg-gray-100 text-green-700'}`}
+                    onClick={() => setActiveTab('login')}
+                >
+                    Login
+                </button>
+                <button
+                    className={`px-4 py-2 font-semibold rounded-r ${activeTab === 'signup' ? 'bg-green-700 text-white' : 'bg-gray-100 text-green-700'}`}
+                    onClick={() => setActiveTab('signup')}
+                >
+                    Create Account
+                </button>
             </div>
-        )}
+            {activeTab === 'login' ? (
+                <form className="flex flex-col gap-4">
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    />
+                    <button
+                        type="submit"
+                        className="bg-green-700 text-white py-2 rounded hover:bg-green-800 transition"
+                    >
+                        Login
+                    </button>
+                </form>
+            ) : (
+                <form className="flex flex-col gap-4">
+                    <input
+                        type="text"
+                        placeholder="Full Name"
+                        className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    />
+                    <button
+                        type="submit"
+                        className="bg-green-700 text-white py-2 rounded hover:bg-green-800 transition"
+                    >
+                        Create Account
+                    </button>
+                </form>
+            )}
+            <button
+                className="mt-4 text-gray-500 hover:text-green-700 transition"
+                onClick={() => setShowLogin(false)}
+            >
+                Close
+            </button>
+        </div>
+    </div>
+)}
         </>
     );
 }
