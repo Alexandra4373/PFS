@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import cartImg from '../assets/cart.png';
+// import likeImg from '../assets/like.png';
 
 
 const products = [
@@ -121,7 +122,11 @@ function Products() {
               <button className="mt-auto bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition">
                 Add to Cart
               </button>
-            </div>
+              {/* <div className="flex items-center justify-center mt-2 gap-2">
+             <img src={likeImg} alt="Like" className="w-5 h-5" />
+             <span className="text-green-700 text-sm font-medium">Add to Wishlist</span>
+             </div> */}
+          </div>
           ))}
         </div>
       </div>
