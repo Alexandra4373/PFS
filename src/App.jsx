@@ -97,8 +97,8 @@ function App() {
       <main className="bg-gray-50 min-h-screen">
         {/* Hero Section */}
         <section className="bg-green-700 text-white py-12 text-center">
-          <h1 className="text-4xl font-bold mb-4 animate-fade-in">Welcome to PFS Products</h1>
-          <p className="text-lg animate-fade-in delay-100">Delicious, nutritious instant rice porridge mixes for every taste!</p>
+          <h1 className="text-4xl font-bold mb-4 animate-fade-in">Welcome to PFS Store</h1>
+          <p className="text-lg animate-fade-in delay-100"> Discover our range of natural and healthy products!</p>
         </section>
 
 
@@ -147,12 +147,13 @@ function App() {
           </div>
           {/* Browse All Products Button */}
           <div className="flex justify-center mt-10">
-            <a
-              href="./Products"
-              className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-green-800 transition mx-2"
+            <Link
+            to="/products"
+            className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-green-800 transition mx-2"
             >
-              Browse All Products
-            </a>
+            Browse All Products
+            </Link>
+            
             {/* <a
               href="/buy"
               className="bg-green-100 text-green-700 px-6 py-3 rounded-lg font-semibold shadow hover:bg-green-200 transition mx-2 border border-green-700"
