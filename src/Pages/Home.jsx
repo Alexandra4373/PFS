@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+// import Header from "../components/Header";
+// import Footer from "../components/Footer";
 // import "../main.css";
 
 
@@ -72,6 +72,7 @@ const products = [
     salePrice: "GH₵40.00",
     image: "",
     sale: true,
+    inStock: true,
   },
   {
     name: "Shemah Instant Rice Porridge Mix (with Coconut Chunks)",
@@ -79,6 +80,7 @@ const products = [
     salePrice: "GH₵42.00",
     image: "",
     sale: true,
+    inStock: true,
   },
   {
     name: "Shemah Instant Rice Porridge Mix (with Groundnut Chunks)",
@@ -86,6 +88,7 @@ const products = [
     salePrice: "GH₵42.00",
     image: "",
     sale: true,
+    inStock: false,
   },
 ];
 
@@ -120,19 +123,29 @@ function App() {
     />
     <h3 className="font-bold text-lg mb-2">{product.name}</h3>
     <div className="mb-2">
-      {product.sale ? (
-        <div>
-          <span className="text-gray-500 line-through mr-2">{product.price}</span>
-          <span className="text-green-700 font-bold">{product.salePrice}</span>
-          <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Sale</span>
-        </div>
-      ) : (
-        <span className="text-gray-800 font-bold">{product.price}</span>
-      )}
-    </div>
-    <button className="mt-auto bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition">
-      Add to Cart
-    </button>
+  {product.inStock ? (
+    product.sale ? (
+      <div>
+        <span className="text-gray-500 line-through mr-2">{product.price}</span>
+        <span className="text-green-700 font-bold">{product.salePrice}</span>
+        <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Sale</span>
+      </div>
+          ) : (
+      <span className="text-gray-800 font-bold">{product.price}</span>
+               )
+     ) : (
+    <span className="text-gray-800 font-bold">{product.price}</span>
+  )}
+   </div>
+    {product.inStock ? (
+  <button className="mt-auto bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition">
+    Add to Cart
+  </button>
+) : (
+  <span className="mt-auto bg-gray-300 text-gray-700 px-4 py-2 rounded font-semibold cursor-not-allowed">
+    Out of Stock
+  </span>
+)}
   </div>
 ))}
           </div>

@@ -10,6 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/buy" element={<Products />} />
         <Route path="/products" element={<Products />} />
       </Routes>
       <Footer />

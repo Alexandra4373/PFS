@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import likeImg from '../assets/like.png';
 import cartImg from '../assets/cart.png';
 import userImg from '../assets/user.png';
@@ -19,16 +20,16 @@ function Header() {
                 <nav>
                     <ul className="text-white hidden sm:flex gap-5 cursor-pointer items-center">
                         <li>
-                            <a href="/" className="hover:text-green-300 transition-colors duration-300">Home</a>
+                            <Link to="/" className="hover:text-green-300 transition-colors duration-300">Home</Link>
                         </li>
                         <li>
-                            <a href="/products" className="hover:text-green-300 transition-colors duration-300">Buy</a>
+                            <Link to="/products" className="hover:text-green-300 transition-colors duration-300">Buy</Link>
                         </li>
                         <li>
                             <a href="/about" className="hover:text-green-300 transition-colors duration-300">About Us</a>
                         </li>
                         <li>
-                            <a href="/about" className="hover:text-green-300 transition-colors duration-300">FAQs</a>
+                            <a href="/faq" className="hover:text-green-300 transition-colors duration-300">FAQs</a>
                         </li>
                         <li>
                             <a href="/contact" className="hover:text-green-300 transition-colors duration-300">Contact Us</a>
