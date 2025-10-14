@@ -1,4 +1,5 @@
 // import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -107,43 +108,32 @@ function App() {
           <h2 className="text-2xl font-semibold mb-8 text-gray-800 animate-fade-in">Featured Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {products.map((product, idx) => (
-              <div
-                key={idx}
-                className="group bg-white rounded-lg shadow hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col relative overflow-hidden transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 animate-fade-in"
-              >
-                {/* Like Button */}
-                <button className="absolute top-4 right-4 z-10 bg-white rounded-full p-1 shadow hover:bg-red-100 transition">
-                  <HeartIcon filled={false} />
-                </button>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-40 object-cover rounded mb-4 transition-transform duration-300 group-hover:scale-105"
-                />
-                <h3 className="font-bold text-lg mb-2 ">{product.name}</h3>
-                <div className="mb-2">
-                  {product.sale ? (
-                    <div>
-                      <span className="text-gray-500 line-through mr-2">{product.price}</span>
-                      <span className="text-green-700 font-bold">{product.salePrice}</span>
-                      <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Sale</span>
-                    </div>
-                  ) : (
-                    <span className="text-gray-800 font-bold">{product.price}</span>
-                  )}
-                </div>
-                <div className="relative mt-auto flex items-center justify-center gap-2">
-                  <button
-                    className="flex items-center gap-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition group text-center"
-                  >
-                    <CartIcon />
-                    Add to Cart
-                  </button>
-                </div>
-                {/* Animated border effect */}
-                {/* <span className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-green-700 transition-all duration-300 pointer-events-none"></span> */}
-              </div>
-            ))}
+  <div
+    key={idx}
+    className="bg-white rounded-lg shadow hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col relative overflow-hidden transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 animate-fade-in"
+  >
+    <img
+      src={product.image}
+      alt={product.name}
+      className="w-full h-40 object-cover rounded mb-4 transition-transform duration-300 group-hover:scale-105"
+    />
+    <h3 className="font-bold text-lg mb-2">{product.name}</h3>
+    <div className="mb-2">
+      {product.sale ? (
+        <div>
+          <span className="text-gray-500 line-through mr-2">{product.price}</span>
+          <span className="text-green-700 font-bold">{product.salePrice}</span>
+          <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Sale</span>
+        </div>
+      ) : (
+        <span className="text-gray-800 font-bold">{product.price}</span>
+      )}
+    </div>
+    <button className="mt-auto bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition">
+      Add to Cart
+    </button>
+  </div>
+))}
           </div>
           {/* Browse All Products Button */}
           <div className="flex justify-center mt-10">
