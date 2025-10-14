@@ -83,9 +83,9 @@ const products = [
   {
     name: "Shemah Instant Rice Porridge Mix (with Groundnut Chunks)",
     price: "GH₵45.00",
-    salePrice: "GH₵45.00",
+    salePrice: "GH₵42.00",
     image: "",
-    sale: false,
+    sale: true,
   },
 ];
 
