@@ -1,4 +1,7 @@
 import React from 'react';
+import { useState } from 'react';
+import cartImg from '../assets/cart.png';
+
 
 const products = [
   {
@@ -74,6 +77,19 @@ const products = [
 ];
 
 function Products() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setQuantity(1);
+  };
+
+  const closePopup = () => {
+    setSelectedProduct(null);
+    setQuantity(1);
+  };
+
   return (
     <main className="bg-gray-50 min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-4">
@@ -82,7 +98,8 @@ function Products() {
           {products.map((product, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-lg shadow hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col relative overflow-hidden transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 animate-fade-in"
+              className="bg-white rounded-lg shadow hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col relative overflow-hidden transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 animate-fade-in cursor-pointer"
+              onClick={() => handleProductClick(product)}
             >
               <img
                 src={product.image}
@@ -108,6 +125,52 @@ function Products() {
           ))}
         </div>
       </div>
+
+      {/* Product Popup */}
+      {selectedProduct && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+          <div className="bg-gradient-to-br from-green-100 via-green-200 to-green-300 rounded-lg shadow-lg p-8 w-full max-w-sm animate-fade-in relative">
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-green-700 text-xl"
+              onClick={closePopup}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedProduct.image}
+              alt={selectedProduct.name}
+              className="w-full h-40 object-cover rounded mb-4"
+            />
+            <h2 className="text-xl font-bold mb-2 text-green-700">{selectedProduct.name}</h2>
+            <div className="mb-4">
+              {selectedProduct.sale ? (
+                <div>
+                  <span className="text-gray-500 line-through mr-2">{selectedProduct.price}</span>
+                  <span className="text-green-700 font-bold">{selectedProduct.salePrice}</span>
+                  <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Sale</span>
+                </div>
+              ) : (
+                <span className="text-gray-800 font-bold">{selectedProduct.price}</span>
+              )}
+            </div>
+            <div className="mb-4 flex items-center gap-2">
+              <label htmlFor="quantity" className="text-gray-700 font-medium">Quantity:</label>
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={e => setQuantity(Math.max(1, Number(e.target.value)))}
+                className="w-16 border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-700"
+              />
+            </div>
+            <button className="flex items-center justify-center gap-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition w-full font-semibold">
+              <img src={cartImg} alt="Cart" className="w-6 h-6" />
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
