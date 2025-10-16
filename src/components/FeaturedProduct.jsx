@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
-import cartImg from '../assets/cart.png';
+import React from "react";
+import { useState } from "react";
+import cartImg from "../assets/cart.png";
 // import likeImg from '../assets/like.png';
-
 
 const products = [
   {
@@ -77,7 +76,7 @@ const products = [
   },
 ];
 
-function Products() {
+function FeaturedProduct() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
@@ -94,7 +93,9 @@ function Products() {
   return (
     <main className="bg-gray-50 min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-green-700 mb-8 text-center">All Products</h1>
+        <h1 className="text-3xl font-bold text-green-700 mb-8 text-center">
+          All Products
+        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((product, idx) => (
             <div
@@ -111,12 +112,20 @@ function Products() {
               <div className="mb-2">
                 {product.sale ? (
                   <div>
-                    <span className="text-gray-500 line-through mr-2">{product.price}</span>
-                    <span className="text-green-700 font-bold">{product.salePrice}</span>
-                    <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Sale</span>
+                    <span className="text-gray-500 line-through mr-2">
+                      {product.price}
+                    </span>
+                    <span className="text-green-700 font-bold">
+                      {product.salePrice}
+                    </span>
+                    <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">
+                      Sale
+                    </span>
                   </div>
                 ) : (
-                  <span className="text-gray-800 font-bold">{product.price}</span>
+                  <span className="text-gray-800 font-bold">
+                    {product.price}
+                  </span>
                 )}
               </div>
               <button className="mt-auto bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition">
@@ -126,7 +135,7 @@ function Products() {
              <img src={likeImg} alt="Like" className="w-5 h-5" />
              <span className="text-green-700 text-sm font-medium">Add to Wishlist</span>
              </div> */}
-          </div>
+            </div>
           ))}
         </div>
       </div>
@@ -146,26 +155,40 @@ function Products() {
               alt={selectedProduct.name}
               className="w-full h-40 object-cover rounded mb-4"
             />
-            <h2 className="text-xl font-bold mb-2 text-green-700">{selectedProduct.name}</h2>
+            <h2 className="text-xl font-bold mb-2 text-green-700">
+              {selectedProduct.name}
+            </h2>
             <div className="mb-4">
               {selectedProduct.sale ? (
                 <div>
-                  <span className="text-gray-500 line-through mr-2">{selectedProduct.price}</span>
-                  <span className="text-green-700 font-bold">{selectedProduct.salePrice}</span>
-                  <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Sale</span>
+                  <span className="text-gray-500 line-through mr-2">
+                    {selectedProduct.price}
+                  </span>
+                  <span className="text-green-700 font-bold">
+                    {selectedProduct.salePrice}
+                  </span>
+                  <span className="ml-2 px-2 py-1 bg-red-100 text-red-700 text-xs rounded">
+                    Sale
+                  </span>
                 </div>
               ) : (
-                <span className="text-gray-800 font-bold">{selectedProduct.price}</span>
+                <span className="text-gray-800 font-bold">
+                  {selectedProduct.price}
+                </span>
               )}
             </div>
             <div className="mb-4 flex items-center gap-2">
-              <label htmlFor="quantity" className="text-gray-700 font-medium">Quantity:</label>
+              <label htmlFor="quantity" className="text-gray-700 font-medium">
+                Quantity:
+              </label>
               <input
                 id="quantity"
                 type="number"
                 min="1"
                 value={quantity}
-                onChange={e => setQuantity(Math.max(1, Number(e.target.value)))}
+                onChange={(e) =>
+                  setQuantity(Math.max(1, Number(e.target.value)))
+                }
                 className="w-16 border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-700"
               />
             </div>
@@ -180,4 +203,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default FeaturedProduct;
