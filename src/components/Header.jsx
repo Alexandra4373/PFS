@@ -14,7 +14,9 @@ function Header() {
       <header className="bg-green-700 text-white shadow animate-fade-in">
         <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
           {/* Logo */}
+
           <div className="flex items-center space-x-2">
+            <img src="/src/assets/logo.png" alt="Logo" className="w-10 h-10" />
             <span className="font-bold text-2xl tracking-wide transition-colors duration-300 hover:text-green-300 cursor-pointer">
               PFS Products
             </span>
