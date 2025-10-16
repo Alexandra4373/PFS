@@ -1,5 +1,5 @@
 import mangoPowder from "../assets/mangoPowder.jpg";
-import fibrefix from "../assets/fibrefix.jpg";
+import fibreFix from "../assets/fibreFix.jpg";
 import ricePorridge from "../assets/ricePorridge.jpg";
 
 const products = [
@@ -14,7 +14,7 @@ const products = [
     name: "Fibrelicious Instant High Fruit Fibre Porridge Mix (Mango Creamy Delight)",
     price: "GH₵66.00",
     salePrice: "GH₵62.00",
-    image: fibrefix,
+    image: fibreFix,
     sale: true,
   },
   {
