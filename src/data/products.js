@@ -1,30 +1,34 @@
+import mangoPowder from "../assets/mangoPowder.jpg";
+import fibrefix from "../assets/fibrefix.jpg";
+import ricePorridge from "../assets/ricePorridge.jpg";
+
 const products = [
   {
     name: "Fibrelicious 100% Natural Mango Powder",
     price: "GH₵72.00",
     salePrice: "GH₵68.00",
-    image: "https://via.placeholder.com/300x200?text=Mango+Powder",
+    image: mangoPowder,
     sale: true,
   },
   {
-    name: "Fibrelicious Instant High Fruit Fibre Porridge Mix (Creamy - Delight)",
+    name: "Fibrelicious Instant High Fruit Fibre Porridge Mix (Mango)",
     price: "GH₵66.00",
     salePrice: "GH₵62.00",
-    image: "https://via.placeholder.com/300x200?text=Creamy+Delight",
+    image: fibrefix,
     sale: true,
   },
   {
-    name: "Fibrelicious Instant High Fruit Fibre Porridge Mix (Fibre - Fix)",
+    name: "Fibrelicious Instant High Fruit Fibre Porridge",
     price: "GH₵78.00",
     salePrice: "GH₵75.00",
-    image: "https://via.placeholder.com/300x200?text=Fibre+Fix",
+    image: fibrefix,
     sale: true,
   },
   {
     name: "Shemah Instant Rice Porridge Mix",
     price: "GH₵40.00",
     salePrice: "GH₵34.00",
-    image: "https://via.placeholder.com/300x200?text=Rice+Porridge+Mix",
+    image: ricePorridge,
     sale: true,
   },
   // {
