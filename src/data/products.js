@@ -1,5 +1,5 @@
 import mangoPowder from "../assets/mangoPowder.jpg";
-import fibreFix from "../assets/fibrefix.jpg";
+import fibreFix from "../assets/fibreFix.jpg";
 import ricePorridge from "../assets/ricePorridge.jpg";
 
 const products = [
