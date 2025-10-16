@@ -129,16 +129,16 @@ function Header() {
               className="block hover:text-green-300"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Buy
+              Shop
             </Link>
             <a href="/about" className="block hover:text-green-300">
-              About Us
+              About
             </a>
             <a href="/faq" className="block hover:text-green-300">
-              FAQs
+              Contact
             </a>
             <a href="/contact" className="block hover:text-green-300">
-              Contact Us
+              Cart
             </a>
             <div className="flex gap-4 mt-3">
               <button className="bg-transparent p-1 rounded-full hover:bg-red-100 transition">
