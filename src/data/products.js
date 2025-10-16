@@ -1,5 +1,5 @@
 import mangoPowder from "../assets/mangoPowder.jpg";
-import fibreFix from "../assets/fibreFix.jpg";
+import fibreFix from "../assets/fibrefix.jpg";
 import ricePorridge from "../assets/ricePorridge.jpg";
 
 const products = [
@@ -21,7 +21,7 @@ const products = [
     name: "Fibrelicious Instant High Fruit Fibre Porridge",
     price: "GH₵78.00",
     salePrice: "GH₵75.00",
-    image: fibrefix,
+    image: fibreFix,
     sale: true,
   },
   {
