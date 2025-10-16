@@ -11,7 +11,7 @@ const products = [
     sale: true,
   },
   {
-    name: "Fibrelicious Instant High Fruit Fibre Porridge Mix (Mango)",
+    name: "Fibrelicious Instant High Fruit Fibre Porridge Mix (Mango Creamy Delight)",
     price: "GH₵66.00",
     salePrice: "GH₵62.00",
     image: fibrefix,

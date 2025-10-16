@@ -7,30 +7,27 @@ const categories = [
     name: "Fresh Fruits",
     image:
       "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400&h=300&fit=crop",
-    items: "50+ Products",
-    color: "from-orange-400 to-red-500",
+    items: "20+ Products",
+    theme: "orange",
     icon: "🍎",
-    bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
   },
   {
     id: 2,
     name: "Vegetables",
     image:
-      "https://images.unsplash.com/photo-1597362925123-aa8cbf4c85e9?w=400&h=300&fit=crop",
-    items: "45+ Products",
-    color: "from-green-500 to-emerald-600",
+      "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmVnZXRhYmxlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+    items: "15+ Products",
+    theme: "green",
     icon: "🥦",
-    bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
   },
   {
     id: 3,
     name: "Grains & Cereals",
     image:
-      "https://images.unsplash.com/photo-1558961360-f95d0280a255?w=400&h=300&fit=crop",
-    items: "30+ Products",
-    color: "from-amber-500 to-yellow-600",
+      "https://images.unsplash.com/photo-1621956838481-f8f616950454?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhaW5zfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+    items: "10+ Products",
+    theme: "amber",
     icon: "🌾",
-    bgColor: "bg-gradient-to-br from-amber-50 to-yellow-50",
   },
 ];
 
