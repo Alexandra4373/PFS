@@ -42,12 +42,12 @@ function Header() {
             >
               About
             </a>
-            <a
-              href="/faq"
+            <Link
+              to="/contact"
               className="hover:text-green-300 transition-colors duration-300"
             >
               Contact
-            </a>
+            </Link>
             {/* <a
               href="/contact"
               className="hover:text-green-300 transition-colors duration-300"
