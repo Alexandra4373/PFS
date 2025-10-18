@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import likeImg from "../assets/like.png";
+// import likeImg from "../assets/like.png";
 import cartImg from "../assets/cart.png";
-import userImg from "../assets/user.png";
+// import userImg from "../assets/user.png";
 
 function Header() {
   const [showLogin, setShowLogin] = useState(false);
@@ -48,12 +48,12 @@ function Header() {
             >
               Contact
             </a>
-            <a
+            {/* <a
               href="/contact"
               className="hover:text-green-300 transition-colors duration-300"
             >
               Cart
-            </a>
+            </a> */}
 
             {/* Search Bar */}
             <div className="hidden md:flex flex-1 mx-8">
@@ -64,13 +64,13 @@ function Header() {
               />
             </div>
             {/* Like Button */}
-            <button className="bg-transparent p-1 rounded-full hover:bg-red-100 transition">
+            {/* <button className="bg-transparent p-1 rounded-full hover:bg-red-100 transition">
               <img
                 src={likeImg}
                 alt="Like"
                 className="w-6 h-6 transition-transform duration-300 group-hover:scale-125"
               />
-            </button>
+            </button> */}
             {/* Cart with badge */}
             <div className="relative group ml-2">
               <button className="bg-green-600 p-1 rounded-full hover:bg-green-800 transition">
@@ -84,7 +84,7 @@ function Header() {
                 2
               </span>
             </div>
-            <button
+            {/* <button
               className="bg-transparent p-1 rounded-full hover:bg-gray-200 transition ml-2"
               onClick={() => setShowLogin(true)}
             >
@@ -93,7 +93,7 @@ function Header() {
                 alt="User"
                 className="w-6 h-6 transition-transform duration-300 group-hover:scale-125"
               />
-            </button>
+            </button> */}
           </nav>
           {/* Hamburger for mobile */}
           <button
@@ -139,13 +139,13 @@ function Header() {
             <a href="/faq" className="block hover:text-green-300">
               Contact
             </a>
-            <a href="/contact" className="block hover:text-green-300">
+            {/* <a href="/contact" className="block hover:text-green-300">
               Cart
-            </a>
+            </a> */}
             <div className="flex gap-4 mt-3">
-              <button className="bg-transparent p-1 rounded-full hover:bg-red-100 transition">
+              {/* <button className="bg-transparent p-1 rounded-full hover:bg-red-100 transition">
                 <img src={likeImg} alt="Like" className="w-6 h-6" />
-              </button>
+              </button> */}
               <div className="relative">
                 <button className="bg-green-600 p-1 rounded-full hover:bg-green-800 transition">
                   <img src={cartImg} alt="Cart" className="w-6 h-6" />
@@ -154,7 +154,7 @@ function Header() {
                   2
                 </span>
               </div>
-              <button
+              {/* <button
                 className="bg-transparent p-1 rounded-full hover:bg-gray-200 transition"
                 onClick={() => {
                   setShowLogin(true);
@@ -162,7 +162,7 @@ function Header() {
                 }}
               >
                 <img src={userImg} alt="User" className="w-6 h-6" />
-              </button>
+              </button> */}
             </div>
           </div>
         )}

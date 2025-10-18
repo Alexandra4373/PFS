@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./Pages/Home";
-import FeaturedProducts from "./components/FeaturedProducts";
+import Shop from "./Pages/Shop";
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<FeaturedProducts />} />
+        <Route path="/products" element={<Shop />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
       <Footer />
     </>
