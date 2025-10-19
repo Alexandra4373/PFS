@@ -8,6 +8,7 @@ function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [activeTab, setActiveTab] = useState("login");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <>
@@ -147,12 +148,18 @@ function Header() {
                 <img src={likeImg} alt="Like" className="w-6 h-6" />
               </button> */}
               <div className="relative">
-                <button className="bg-green-600 p-1 rounded-full hover:bg-green-800 transition">
+                <Link
+                  to="/cart"
+                  className="bg-green-600 p-1 rounded-full hover:bg-green-800 transition inline-block"
+                >
                   <img src={cartImg} alt="Cart" className="w-6 h-6" />
-                </button>
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-bold border-2 border-white">
-                  2
-                </span>
+                </Link>
+
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-bold border-2 border-white">
+                    {totalItems}
+                  </span>
+                )}
               </div>
               {/* <button
                 className="bg-transparent p-1 rounded-full hover:bg-gray-200 transition"
