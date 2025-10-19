@@ -44,11 +44,11 @@ function RelatedProducts({ currentProductId }) {
 
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-green-700">
-                    GH₵{product.price}
+                    {product.price}
                   </span>
                   {product.originalPrice && (
                     <span className="text-sm text-gray-500 line-through">
-                      GH₵{product.originalPrice}
+                      {product.originalPrice}
                     </span>
                   )}
                 </div>

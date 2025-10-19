@@ -76,6 +76,9 @@ function Footer() {
               <FaEnvelope className="text-green-300" /> pneumaconsult@gmail.com
             </li>
           </ul>
+          <p className="text-secondary-foreground/60 text-sm mt-4">
+            Mon - Fri: 9:00 AM - 5:00 PM
+          </p>
         </div>
 
         {/* Social Media */}
