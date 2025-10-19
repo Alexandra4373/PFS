@@ -75,16 +75,16 @@ function ProductInfo({ product }) {
       {/* Price */}
       <div className="flex items-center gap-3">
         <span className="text-3xl font-bold text-green-700">
-          GH₵{product.price}
+          {product.price}
         </span>
         {product.originalPrice && (
           <span className="text-xl text-gray-500 line-through">
-            GH₵{product.originalPrice}
+            {product.originalPrice}
           </span>
         )}
         {product.originalPrice && (
           <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-sm font-semibold">
-            Save GH₵{(product.originalPrice - product.price).toFixed(2)}
+            Save {(product.originalPrice - product.price).toFixed(2)}
           </span>
         )}
       </div>

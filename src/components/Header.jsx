@@ -73,16 +73,16 @@ function Header() {
             </button> */}
             {/* Cart with badge */}
             <div className="relative group ml-2">
-              <button className="bg-green-600 p-1 rounded-full hover:bg-green-800 transition">
+              <button className=" p-1 rounded-full bg-green-600 hover:bg-green-800 transition">
                 <img
                   src={cartImg}
                   alt="Cart"
                   className="w-6 h-6 transition-transform duration-300 group-hover:scale-125"
                 />
               </button>
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-bold border-2 border-white">
+              {/* <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-bold border-2 border-white">
                 2
-              </span>
+              </span> */}
             </div>
             {/* <button
               className="bg-transparent p-1 rounded-full hover:bg-gray-200 transition ml-2"
