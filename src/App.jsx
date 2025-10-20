@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import Home from "./Pages/Home";
 import Shop from "./Pages/Shop";
 import ProductDetails from "./Pages/ProductDetails";
+import Cart from "./Pages/Cart";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   return (

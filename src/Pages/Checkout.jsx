@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useCart } from "./CartContext";
-import CheckoutForm from "./CheckoutForm";
-import OrderReview from "./OrderReview";
+import { useCart } from "../components/CartContext";
+import CheckoutForm from "../components/CheckoutForm";
+import OrderReview from "../components/OrderReview";
 
 const Checkout = () => {
   const navigate = useNavigate();

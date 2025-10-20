@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import likeImg from "../assets/like.png";
 // import cartImg from "../assets/cart.png";
 // import userImg from "../assets/user.png";
-import { useCart } from "./CartContext";
+import { useCart } from "../hooks/useCart";
 
 function Header() {
   // const [showLogin, setShowLogin] = useState(false);
