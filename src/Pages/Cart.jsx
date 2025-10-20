@@ -1,79 +1,108 @@
-import React, { useState } from "react";
-import CartItem from "../components/CartItem";
-import OrderSummary from "../components/OrderSummary";
-import { Link } from "react-router-dom";
+import React, { useCart } from "react";
+import { BrowserRouter as Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Premium Mango Powder",
-      price: 45,
-      quantity: 2,
-      image: "/images/mango.png",
-    },
-    {
-      id: 2,
-      name: "Instant Rice Porridge",
-      price: 30,
-      quantity: 1,
-      image: "/images/rice.png",
-    },
-  ]);
+  const navigate = useNavigate();
+  const { cart, updateQuantity, removeFromCart, getCartTotal } = useCart();
 
-  const handleQuantityChange = (id, delta) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-          : item
-      )
-    );
+  const handleCheckout = () => {
+    navigate("/checkout");
   };
 
-  const handleRemove = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
-  const shipping = 15;
+  const subtotal = getCartTotal();
 
   return (
-    <div className="bg-white min-h-screen p-4 md:p-10">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-semibold text-gray-800 mb-2">
-          Shopping Cart
-        </h1>
-        <p className="text-gray-500 mb-6">
-          <Link to="/" className="text-orange-600 hover:underline">
-            Home
-          </Link>{" "}
-          / Cart
-        </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header Section */}
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Shopping Cart
+          </h1>
+          <nav className="text-sm text-gray-600">
+            <Link to="/" className="hover:text-green-700 transition">
+              Home
+            </Link>
+            <span className="mx-2">/</span>
+            <span className="text-gray-900 font-medium">Cart</span>
+          </nav>
+        </div>
+      </div>
 
-        {cartItems.length === 0 ? (
-          <p className="text-center text-gray-500 mt-20 text-lg">
-            Your cart is empty.
-          </p>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {cart.length === 0 ? (
+          <div className="text-center py-16">
+            <div className="mb-6">
+              <svg
+                className="w-24 h-24 mx-auto text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Your cart is empty
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Add some products to get started!
+            </p>
+            <Link
+              to="/products"
+              className="inline-block bg-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-800 transition transform hover:scale-105"
+            >
+              Continue Shopping
+            </Link>
+          </div>
         ) : (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             {/* Cart Items */}
-            <div className="md:col-span-2 space-y-5">
-              {cartItems.map((item) => (
+            <div className="lg:col-span-2">
+              <div className="bg-white rounded-lg shadow-sm p-6 mb-4">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                  Cart Items ({cart.length})
+                </h2>
+              </div>
+              {cart.map((item) => (
                 <CartItem
                   key={item.id}
                   item={item}
-                  onQuantityChange={handleQuantityChange}
-                  onRemove={handleRemove}
+                  onQuantityChange={updateQuantity}
+                  onRemove={removeFromCart}
                 />
               ))}
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold mt-4"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+                Continue Shopping
+              </Link>
             </div>
 
             {/* Order Summary */}
-            <OrderSummary subtotal={subtotal} shipping={shipping} />
+            <div className="lg:col-span-1">
+              <OrderSummary subtotal={subtotal} onCheckout={handleCheckout} />
+            </div>
           </div>
         )}
       </div>
