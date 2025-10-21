@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function PromoBanner() {
   const [timeLeft, setTimeLeft] = useState({
@@ -100,9 +101,12 @@ function PromoBanner() {
 
           {/* Right Content - CTA Button */}
           <div className="text-center">
-            <button className="bg-white text-green-700 px-6 py-3 rounded-full font-bold text-base hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95">
+            <Link
+              to="/products"
+              className="inline-block bg-white text-green-700 px-6 py-3 rounded-full font-bold text-base hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
+            >
               Shop Now & Save
-            </button>
+            </Link>
             <p className="text-green-100 text-sm mt-2 hidden lg:block">
               Limited spots available!
             </p>

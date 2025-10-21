@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import cartImg from "../assets/cart.png";
 // import userImg from "../assets/user.png";
 import { useCart } from "../hooks/useCart";
+import logo from "../assets/logo.png";
 
 function Header() {
   // const [showLogin, setShowLogin] = useState(false);
@@ -14,18 +15,14 @@ function Header() {
 
   return (
     <>
-      <header className="bg-green-700 text-white shadow-lg">
+      <header className="bg-white-700 text-green shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
           {/* Logo */}
           <Link
             to="/"
             className="flex items-center space-x-3 hover:opacity-90 transition-opacity"
           >
-            <img
-              src="/src/assets/logo.png"
-              alt="PFS Products Logo"
-              className="w-10 h-10"
-            />
+            <img src={logo} alt="PFS Products Logo" className="w-10 h-10" />
             <span className="font-bold text-2xl tracking-wide">
               PFS Products
             </span>
