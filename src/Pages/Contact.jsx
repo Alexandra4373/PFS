@@ -75,9 +75,13 @@ function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1 text-green-800">Phone</h3>
                     <p className="text-gray-600">
-                      +233 24 104 3139
+                      +233 54 206 8305
+                      <br />
+                      +233 20 793 5696
                       <br />
                       +233 50 338 6203
+                      <br />
+                      +233 24 104 3139
                     </p>
                   </div>
                 </div>
