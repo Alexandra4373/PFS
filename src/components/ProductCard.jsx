@@ -40,7 +40,7 @@ function ProductCard({ product }) {
           </button>
 
           <Link to={`/product/${product.id}`} state={{ product }}>
-            <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+            <button className="mt-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
               View Details
             </button>
           </Link>
