@@ -1,4 +1,5 @@
-import React, { useCart } from "react";
+import React from "react";
+import { useCart } from "../hooks/useCart";
 import { Link, useNavigate } from "react-router-dom";
 // import { useCart } from "../hooks/useCart";
 import CartItem from "../components/CartItem";
