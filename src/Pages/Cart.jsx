@@ -1,5 +1,8 @@
 import React, { useCart } from "react";
-import { BrowserRouter as Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import { useCart } from "../hooks/useCart";
+import CartItem from "../components/CartItem";
+import OrderSummary from "../components/OrderSummary";
 
 const Cart = () => {
   const navigate = useNavigate();

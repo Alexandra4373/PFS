@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../hooks/useCart";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(product, 1);
+    toast.success(`${product.name} added to cart!`);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col relative overflow-hidden transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 animate-fade-in">
       <img
@@ -35,7 +45,10 @@ function ProductCard({ product }) {
         </span>
       ) : (
         <>
-          <button className="mt-auto bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition">
+          <button
+            onClick={handleAddToCart}
+            className="mt-auto bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
+          >
             Add to Cart
           </button>
 

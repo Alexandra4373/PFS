@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useCart } from "../hooks/useCart";
 import ProductGallery from "../components/ProductGallery";
 import ProductInfo from "../components/ProductInfo";
 import ProductTabs from "../components/ProductTabs";
@@ -10,19 +11,19 @@ function ProductDetails() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [showToast, setShowToast] = useState(false);
+  const { addToCart } = useCart();
 
-  // Get product by index (id from URL)
-  const product = products[id] || products[0];
+  // Find the selected product by its ID
+  const product = products.find((p) => p.id === parseInt(id)) || products[0];
 
   const handleQuantityChange = (type) => {
-    if (type === "increase") {
-      setQuantity((prev) => prev + 1);
-    } else if (type === "decrease" && quantity > 1) {
-      setQuantity((prev) => prev - 1);
-    }
+    setQuantity((prev) =>
+      type === "increase" ? prev + 1 : Math.max(1, prev - 1)
+    );
   };
 
   const handleAddToCart = () => {
+    addToCart({ ...product, quantity }); // Add product with selected quantity
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
@@ -46,7 +47,7 @@ function ProductDetails() {
         </div>
       </div>
 
-      {/* Main Product Section */}
+      {/* Product Section */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
           {/* Product Gallery */}
@@ -56,12 +57,13 @@ function ProductDetails() {
           <div>
             <ProductInfo product={product} />
 
-            {/* Quantity Selector */}
+            {/* Quantity Selector & Add to Cart */}
             <div className="mt-8 border-t pt-6">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 Quantity
               </label>
               <div className="flex items-center gap-4">
+                {/* Quantity Control */}
                 <div className="flex items-center border border-gray-300 rounded-lg">
                   <button
                     onClick={() => handleQuantityChange("decrease")}
@@ -105,6 +107,7 @@ function ProductDetails() {
                   </button>
                 </div>
 
+                {/* Add to Cart Button */}
                 <button
                   onClick={handleAddToCart}
                   className="flex-1 bg-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-800 transition transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
@@ -181,10 +184,8 @@ function ProductDetails() {
           </div>
         </div>
 
-        {/* Product Tabs */}
+        {/* Product Tabs & Related Products */}
         <ProductTabs product={product} />
-
-        {/* Related Products */}
         <RelatedProducts currentProductId={id} />
       </div>
 
