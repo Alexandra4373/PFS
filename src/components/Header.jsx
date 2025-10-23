@@ -1,17 +1,37 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import likeImg from "../assets/like.png";
 // import cartImg from "../assets/cart.png";
 // import userImg from "../assets/user.png";
 import { useCart } from "../hooks/useCart";
 import logo from "../assets/logo.png";
+// import { ShoppingCart, Menu, X, Search } from "lucide-react";
 
 function Header() {
   // const [showLogin, setShowLogin] = useState(false);
   // const [activeTab, setActiveTab] = useState("login");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [mobileSearch, setMobileSearch] = useState("");
   const { getCartCount } = useCart();
   const cartCount = getCartCount();
+  const navigate = useNavigate();
+
+  //  Desktop Search Function
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/products?search=${encodeURIComponent(searchTerm)}`);
+  };
+
+  //  Mobile Search Function
+  const handleMobileSearch = (e) => {
+    e.preventDefault();
+    if (mobileSearch.trim() !== "") {
+      navigate(`/products?search=${encodeURIComponent(mobileSearch)}`);
+      setMobileSearch("");
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <>
@@ -55,32 +75,39 @@ function Header() {
               Contact
             </Link>
 
-            {/* Search Bar */}
-            <div className="relative mx-4">
+            {/*  Search Bar (Desktop) */}
+            <form onSubmit={handleSearch} className="relative mx-4">
               <input
                 type="text"
                 placeholder="Search products..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-64 px-4 py-2 rounded-lg border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 placeholder-gray-500"
               />
-              <svg
-                className="w-5 h-5 text-gray-400 absolute right-3 top-2.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              <button
+                type="submit"
+                className="absolute right-3 top-2.5 text-gray-400 hover:text-green-600"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </form>
 
             {/* Cart Button */}
             <Link
               to="/cart"
-              className="relative p-2 rounded-full bg-green-600 hover:bg-green-800 transition-colors duration-300 group"
+              className="relative p-2 rounded-full bg-green-600 hover:bg-green-700 transition-colors duration-300 group"
             >
               <svg
                 className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
@@ -95,6 +122,7 @@ function Header() {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
+
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 font-bold border-2 border-white min-w-[1.25rem] text-center">
                   {cartCount > 99 ? "99+" : cartCount}
@@ -105,7 +133,7 @@ function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden ml-4 focus:outline-none p-2 rounded-lg hover:bg-green-600 transition-colors"
+            className="md:hidden ml-4 focus:outline-none p-2 rounded-lg hover:bg-green-100 transition"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -129,53 +157,50 @@ function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* ✅ Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-green-800 px-6 py-4 space-y-4 border-t border-green-600">
+          <div className="md:hidden bg-green-50 px-6 py-4 space-y-4 border-t border-green-200">
             <Link
               to="/"
-              className="block py-2 hover:text-green-300 transition-colors font-medium"
+              className="block py-2 hover:text-green-600 transition-colors font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               to="/products"
-              className="block py-2 hover:text-green-300 transition-colors font-medium"
+              className="block py-2 hover:text-green-600 transition-colors font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Shop
             </Link>
             <Link
               to="/about"
-              className="block py-2 hover:text-green-300 transition-colors font-medium"
+              className="block py-2 hover:text-green-600 transition-colors font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="block py-2 hover:text-green-300 transition-colors font-medium"
+              className="block py-2 hover:text-green-600 transition-colors font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
             </Link>
 
-            {/* Mobile Search */}
-            <div className="pt-2">
+            {/* ✅ Mobile Search */}
+            <form onSubmit={handleMobileSearch} className="pt-2 relative">
               <input
                 type="text"
                 placeholder="Search products..."
+                value={mobileSearch}
+                onChange={(e) => setMobileSearch(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 placeholder-gray-500"
               />
-            </div>
-
-            {/* Mobile Cart */}
-            <div className="pt-2">
-              <Link
-                to="/cart"
-                className="inline-flex items-center gap-2 py-2 px-4 bg-green-600 hover:bg-green-800 rounded-lg transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
+              <button
+                type="submit"
+                className="absolute right-3 top-3 text-gray-400 hover:text-green-600"
               >
                 <svg
                   className="w-5 h-5"
@@ -187,7 +212,30 @@ function Header() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </form>
+
+            {/* Mobile Cart */}
+            <div className="pt-2">
+              <Link
+                to="/cart"
+                className="inline-flex items-center gap-2 py-2 px-4 bg-green-600 hover:bg-green-800 rounded-lg transition-colors font-medium text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <svg
+                  className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
                 Cart
