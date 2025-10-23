@@ -33,6 +33,18 @@ function Header() {
     }
   };
 
+  // Handle Enter key press for both search inputs
+  const handleKeyPress = (e, isMobile = false) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (isMobile) {
+        handleMobileSearch(e);
+      } else {
+        handleSearch(e);
+      }
+    }
+  };
+
   return (
     <>
       <header className="bg-white-700 text-green shadow-lg">
@@ -82,6 +94,7 @@ function Header() {
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyPress={(e) => handleKeyPress(e, false)}
                 className="w-64 px-4 py-2 rounded-lg border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 placeholder-gray-500"
               />
               <button
@@ -196,6 +209,7 @@ function Header() {
                 placeholder="Search products..."
                 value={mobileSearch}
                 onChange={(e) => setMobileSearch(e.target.value)}
+                onKeyPress={(e) => handleKeyPress(e, false)}
                 className="w-full px-4 py-2 rounded-lg border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 placeholder-gray-500"
               />
               <button
