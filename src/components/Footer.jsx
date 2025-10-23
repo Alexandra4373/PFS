@@ -9,6 +9,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -33,29 +34,36 @@ function Footer() {
           <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="/home" className="hover:text-green-300 transition">
+              <Link
+                to="/"
+                className="hover:text-green-300 transition-colors duration-300 font-medium"
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/shop" className="hover:text-green-300 transition">
+              <Link
+                to="/products"
+                className="hover:text-green-300 transition-colors duration-300 font-medium"
+              >
                 Shop
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-green-300 transition">
+              <Link
+                to="/about"
+                className="hover:text-green-300 transition-colors duration-300 font-medium"
+              >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/faq" className="hover:text-green-300 transition">
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="hover:text-green-300 transition">
+              <Link
+                to="/contact"
+                className="hover:text-green-300 transition-colors duration-300 font-medium"
+              >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
