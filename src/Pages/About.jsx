@@ -10,7 +10,7 @@ function About() {
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">About PFS</h1>
             <p className="text-lg text-green-100 max-w-2xl">
-              Pneuma Food Science - Your trusted partner in premium quality food
+              Pneuma Food Scientifics - Your trusted partner in premium quality food
               products
             </p>
           </div>
